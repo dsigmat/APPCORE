@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,22 +40,26 @@ namespace AppCORE
             //});
 
             //MAP
-            app.Map("/plus", (appBuilder) =>
-            {
-                appBuilder.Run(async (context) =>
-                {
-                    a = a + 2;
-                    await context.Response.WriteAsync($" Map a = {a}");
-                });
-            });
-            app.Map("/min", (appBuilder) =>
-            {
-                appBuilder.Run(async (context) =>
-                {
-                    a = a - 2;
-                    await context.Response.WriteAsync($" Map a = {a}");
-                });
-            });
+            //app.Map("/plus", (appBuilder) =>
+            //{
+            //    appBuilder.Run(async (context) =>
+            //    {
+            //        a = a + 2;
+            //        await context.Response.WriteAsync($" Map a = {a}");
+            //    });
+            //});
+            //app.Map("/min", (appBuilder) =>
+            //{
+            //    appBuilder.Run(async (context) =>
+            //    {
+            //        a = a - 2;
+            //        await context.Response.WriteAsync($" Map a = {a}");
+            //    });
+            //});
+
+            //USE Middleware
+            //app.UseMainMiddleware();
+            //app.UseSecondaryMiddleware();
 
             app.Run(async (context) =>
             {
